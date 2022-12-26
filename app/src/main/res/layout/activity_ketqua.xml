@@ -159,13 +159,13 @@
             android:weightSum="2">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/shareBtn"
+                android:id="@+id/XemBtn"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_back_white_10"
-                android:text="Chia sẻ kết quả"
+                android:text="Xem kết quả"
                 android:textAllCaps="false"
                 android:textColor="@color/black" />
 

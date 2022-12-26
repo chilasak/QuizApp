@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ketqua extends AppCompatActivity {
         final TextView totalScoreTV = findViewById(R.id.totalScoreTV);
         final TextView correctTV = findViewById(R.id.correctTV);
         final TextView incorrectTV = findViewById(R.id.inCorrectTV);
-        final AppCompatButton shareBtn = findViewById(R.id.shareBtn);
+        final AppCompatButton shareBtn = findViewById(R.id.XemBtn);
         final AppCompatButton reTakeBtn = findViewById(R.id.reTakeQuizBtn);
 
         questionsLists = (List<QuestionsList>) getIntent().getSerializableExtra("quetions");
@@ -37,13 +38,17 @@ public class ketqua extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // open share intent
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "My Score = "+scoreTV.getText());
+                Intent intent = new Intent(ketqua.this,xem_kq.class);
 
-                Intent shareIntent = Intent.createChooser(sendIntent, "Share Via");
-                startActivity(shareIntent);
+                // creating bundle to pass quizQuestionsLists
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("quetions", (Serializable) questionsLists);
+
+                // add bundle to intent
+                intent.putExtras(bundle);
+
+                // start activity to open QuizResult activity
+                startActivity(intent);
             }
         });
 

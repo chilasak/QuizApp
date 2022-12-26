@@ -1,14 +1,14 @@
 package com.quizapp.quizapp;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -73,13 +73,13 @@ public class xem_kq extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   i--;
+                i--;
                 if(i==-1){
 
                     finishQuiz();
                 }
 
-                   Check(i);
+                Check(i);
 
             }
         });
@@ -120,7 +120,7 @@ public class xem_kq extends AppCompatActivity {
             selectOption(option4Layout, option4Icon);
         }
 
-         if(getUserSelectedOption == 1 && getUserSelectedOption!=getQuestionAnswer){
+        if(getUserSelectedOption == 1 && getUserSelectedOption!=getQuestionAnswer){
             UserselectOption(option1Layout, option1Icon);
         }
         else if(getUserSelectedOption == 2 && getUserSelectedOption!=getQuestionAnswer ){
@@ -133,7 +133,7 @@ public class xem_kq extends AppCompatActivity {
             UserselectOption(option4Layout, option4Icon);
         }
 
-         if(getQuestionAnswer == 1 ){
+        if(getQuestionAnswer == 1 ){
             selectOption(option1Layout, option1Icon);
         }
         else if(getQuestionAnswer == 2 ){
