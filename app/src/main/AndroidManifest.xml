@@ -14,7 +14,16 @@
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
         <activity
+            android:name=".Mon"
+            android:exported="false" />
+        <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
             android:name=".xem_kq"
+            android:exported="false" />
+        <activity
+            android:name=".StartActivity"
             android:exported="false" />
         <activity
             android:name=".ketqua"
@@ -23,7 +32,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

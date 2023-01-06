@@ -1,5 +1,6 @@
 package com.quizapp.quizapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -7,6 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +24,7 @@ import java.util.List;
 
 public class ketqua extends AppCompatActivity {
     private List<QuestionsList> questionsLists = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,27 @@ public class ketqua extends AppCompatActivity {
         final TextView incorrectTV = findViewById(R.id.inCorrectTV);
         final AppCompatButton shareBtn = findViewById(R.id.XemBtn);
         final AppCompatButton reTakeBtn = findViewById(R.id.reTakeQuizBtn);
+        final TextView name = findViewById(R.id.name);
+
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //  Toast.makeText(this, "" + uid, Toast.LENGTH_SHORT).show();
+        DatabaseReference zonesRef = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference zone1Ref = zonesRef.child(uid);
+        zone1Ref.child("user").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               final String u = snapshot.getValue(String.class);
+                name.setText("chúc mưng "+u);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ketqua.this, "Failed to get data from Firebase", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
         questionsLists = (List<QuestionsList>) getIntent().getSerializableExtra("quetions");
 
