@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     // CountDown Timer for Quiz
     private CountDownTimer countDownTimer;
+// get topic
+    String getTopicName;
 
     // current question position. By default 0 (First Question)
     private int currentQuestionPosition = 0;
@@ -81,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         totalQuestionTV = findViewById(R.id.totalQuestionsTV);
         currentQuestion = findViewById(R.id.currentQuestionTV);
 
+        getTopicName = getIntent().getStringExtra("selectedTopic");
+
+
+
         final AppCompatButton nextBtn = findViewById(R.id.nextQuestionBtn);
 
         InstructionsDialog instructionsDialog = new InstructionsDialog(MainActivity.this);
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for(DataSnapshot questions : snapshot.child("questions").getChildren()){
+                for(DataSnapshot questions : snapshot.child(getTopicName).getChildren()){
                    // Toast.makeText(MainActivity.this, "Connect to get data from Firebase", Toast.LENGTH_SHORT).show();
                     String getQuestion = questions.child("question").getValue(String.class);
                    String getOption1 = questions.child("option1").getValue(String.class);

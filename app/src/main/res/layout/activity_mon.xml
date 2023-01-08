@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/nen"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
 
@@ -13,11 +13,11 @@
         android:id="@+id/quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:adjustViewBounds="true"
         android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="80dp"
-        android:src="@drawable/quiz"/>
+        android:adjustViewBounds="true"
+        android:src="@drawable/quiz_icon1" />
     <TextView
         android:id="@+id/choose"
         android:layout_width="wrap_content"
@@ -40,6 +40,7 @@
         android:layout_marginEnd="20dp"
         android:weightSum="2">
         <LinearLayout
+            android:id="@+id/mon1"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,18 +52,19 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/icon1"/>
+                android:src="@drawable/img_2"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="android"
+                android:text="FOSS"
                 android:textColor="#CC000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mon2"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -74,12 +76,12 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/icon1"/>
+                android:src="@drawable/html_icon"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="android"
+                android:text="html"
                 android:textColor="#CC000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -98,6 +100,7 @@
         android:layout_marginEnd="20dp"
         android:weightSum="2">
         <LinearLayout
+            android:id="@+id/mon3"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -109,18 +112,19 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/icon1"/>
+                android:src="@drawable/img"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="android"
+                android:text="Java"
                 android:textColor="#CC000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mon4"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,12 +136,12 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/icon1"/>
+                android:src="@drawable/img_1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="android"
+                android:text="Triết học"
                 android:textColor="#CC000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -146,16 +150,17 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout2"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginEnd="30dp"
-        android:textColor="@color/black"
-        android:background="@drawable/round_back"
-        android:text="Start Quiz" />
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_back_green20"
+        android:text="Start Quiz"
+        android:textColor="@color/black" />
 
 
 </RelativeLayout>

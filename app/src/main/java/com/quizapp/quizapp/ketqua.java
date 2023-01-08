@@ -89,7 +89,7 @@ public class ketqua extends AppCompatActivity {
             public void onClick(View v) {
 
                 // re start quiz go to MainActivity
-                startActivity(new Intent(ketqua.this, MainActivity.class));
+                startActivity(new Intent(ketqua.this, Mon.class));
                 finish();
             }
         });
